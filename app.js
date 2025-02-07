@@ -1,9 +1,7 @@
-// Array global para armazenar os nomes adicionados
+
 let amigos = [];
 
-/**
- * Adiciona um amigo à lista e atualiza a exibição.
- */
+
 function adicionarAmigo() {
   const input = document.getElementById("amigo");
   const nome = input.value.trim();
@@ -24,9 +22,7 @@ function adicionarAmigo() {
   input.value = "";
 }
 
-/**
- * Atualiza a lista de nomes exibida na tela.
- */
+
 function atualizarListaAmigos() {
   const listaAmigos = document.getElementById("listaAmigos");
   listaAmigos.innerHTML = "";
@@ -38,21 +34,18 @@ function atualizarListaAmigos() {
   });
 }
 
-/**
- * Realiza o sorteio dos amigos secretamente.
- * É necessário ter pelo menos dois nomes para sortear.
- */
+
 function sortearAmigo() {
   if (amigos.length < 2) {
     alert("Adicione pelo menos dois nomes para sortear.");
     return;
   }
   
-  // Cria uma cópia do array e embaralha usando Fisher-Yates
+  
   let amigosEmbaralhados = [...amigos];
   shuffle(amigosEmbaralhados);
   
-  // Gera os pares: cada amigo recebe o próximo, e o último recebe o primeiro
+  
   let pares = [];
   for (let i = 0; i < amigosEmbaralhados.length; i++) {
     let amigo = amigosEmbaralhados[i];
@@ -63,9 +56,7 @@ function sortearAmigo() {
   exibirPares(pares);
 }
 
-/**
- * Embaralha o array utilizando o algoritmo de Fisher-Yates.
- */
+
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -73,9 +64,7 @@ function shuffle(array) {
   }
 }
 
-/**
- * Exibe os pares sorteados na tela.
- */
+
 function exibirPares(pares) {
   const resultado = document.getElementById("resultado");
   resultado.innerHTML = "";
